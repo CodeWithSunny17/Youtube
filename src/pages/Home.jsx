@@ -1,10 +1,24 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import React from "react";
+import Sidebar from "../components/SideBar";
+import Navbar from "../components/Navbar";
+import { useState } from "react";
 
-export default function Home() {
+const Home = () => {
+  const [openBar, SetOpenBar] = useState(false);
+
+  const toggleOpen = () => {
+    SetOpenBar(!openBar);
+  };
   return (
     <div>
-        <Navbar/>
+      <div className={`sticky top-0 ${openBar ? "blur-sm" : ""}`}>
+        <Navbar toggleOpen={toggleOpen} />
+      </div>
+      <div className="bg-zinc-900 text-white z-[20]">
+        <Sidebar openBar={openBar} toggleOpen={toggleOpen} />
+      </div>
     </div>
-  )
-}
+  );
+};
+
+export default Home;
