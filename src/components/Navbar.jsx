@@ -11,7 +11,7 @@ export default function Navbar({ toggleOpen }) {
   return (
     <div className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white" onClick={toggleOpen}>
       <div className="flex justify-center items-center gap-6 ">
-        <div className="text-xl" onClick={toggleOpen}>
+        <div className="text-xl">
           <RxHamburgerMenu />
         </div>
         <div className="flex justify-between items-center gap-1">
