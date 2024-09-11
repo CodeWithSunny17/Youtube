@@ -9,9 +9,10 @@ const Home = () => {
   const toggleOpen = () => {
     SetOpenBar(!openBar);
   };
+  
   return (
     <div>
-      <div className={`sticky top-0 ${openBar ? "blur-sm" : ""}`}>
+      <div className={`sticky top-0 ${openBar ? "bg-black text-zinc-800 opacity-95" : ""}`}>
         <Navbar toggleOpen={toggleOpen} />
       </div>
       <div className="bg-zinc-900 text-white z-[20]">
