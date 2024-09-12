@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 9px; /* Increased width to accommodate margin */
+    background-color: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+    margin: 3px; /* Added margin to the track */
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 5px; /* Increased border-radius for a more rounded look */
+    border: 2px solid transparent; /* Create a transparent border */
+    background-clip: content-box; /* This makes the background color apply only to the content area */
+    transition: background-color 0.3s ease-in-out;
+    min-height: 100px;
+  }
+
+  .group:hover .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #a1a1aa; /* zinc-400 */
+  }
+
+  .group:hover .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #d4d4d8; /* zinc-300 */
+  }
+
+}
