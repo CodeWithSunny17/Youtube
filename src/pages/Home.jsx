@@ -18,7 +18,7 @@ const Home = () => {
 					openBar ? "bg-black text-zinc-800 opacity-95" : ""
 				}`}
 			>
-				<Navbar toggleOpen={toggleOpen} SetOpenBar={SetOpenBar} />
+				<Navbar toggleOpen={toggleOpen} />
 			</div>
 			<div className="flex bg-zinc-900">
 				<div className=" text-white z-[20]">
@@ -29,7 +29,10 @@ const Home = () => {
 					onClick={() => {
 						SetOpenBar(false);
 					}}
-				> Hi there</div>
+				>
+					{" "}
+					Hi there
+				</div>
 			</div>
 		</div>
 	);

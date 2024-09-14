@@ -6,15 +6,10 @@ import { FaMicrophone } from "react-icons/fa";
 import { RiVideoAddLine } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
-export default function Navbar({ toggleOpen, SetOpenBar }) {
+export default function Navbar({ toggleOpen }) {
 	const [isVisible, setIsVisible] = useState(false);
 	return (
-		<div
-			className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white"
-			onClick={() => {
-				SetOpenBar(false);
-			}}
-		>
+		<div className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white">
 			<div className="flex justify-center items-center gap-6 ">
 				<div className="text-xl" onClick={toggleOpen}>
 					<RxHamburgerMenu />
