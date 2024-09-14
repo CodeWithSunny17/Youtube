@@ -17,7 +17,7 @@ export default function Navbar({ toggleOpen }) {
         <div className="flex justify-between items-center gap-1">
           <div className="bg-white ml-1 w-4 h-4 z-0 absolute"></div>
           <FaYoutube className="text-3xl text-red-600 z-10" />
-          <span className="text-2xl font-semibold">Youtube</span>
+          <span className="text-2xl font-semibold">YouTube</span>
         </div>
       </div>
       <div className="hidden sm:block">
