@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const Home = () => {
   const [openBar, SetOpenBar] = useState(false);
+  console.log(openBar)// these are my changes
 
   const toggleOpen = () => {
     SetOpenBar(!openBar);
