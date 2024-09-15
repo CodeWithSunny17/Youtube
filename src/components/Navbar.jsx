@@ -6,21 +6,27 @@ import { FaMicrophone } from "react-icons/fa";
 import { RiVideoAddLine } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
-export default function Navbar({ toggleOpen }) {
+export default function Navbar({ toggleOpen, SetOpenBar }) {
   const [isVisible, setIsVisible] = useState(false);
   return (
-    <div className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white" onClick={toggleOpen}>
+    <div className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white">
       <div className="flex justify-center items-center gap-6 ">
-        <div className="text-xl">
+        <div className="text-xl" onClick={toggleOpen}>
           <RxHamburgerMenu />
         </div>
         <div className="flex justify-between items-center gap-1">
           <div className="bg-white ml-1 w-4 h-4 z-0 absolute"></div>
           <FaYoutube className="text-3xl text-red-600 z-10" />
           <span className="text-2xl font-semibold">YouTube</span>
+          {/* <img src="/MyTube.svg" alt="Video-payer-icon" srcSet="" /> */}
         </div>
       </div>
-      <div className="hidden sm:block">
+      <div
+        className="hidden sm:block"
+        onClick={() => {
+          SetOpenBar(false);
+        }}
+      >
         <form action="">
           <div className="flex justify-center items-center gap-4 ">
             <div
