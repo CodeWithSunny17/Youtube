@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import YT_API_KEY from "../../key";
 
-const API_KEY = "AIzaSyDLp7mlqZetpnS4yY-AresPkNLfBTN7ZX0"; // Replace with your YouTube API key
+const API_KEY = YT_API_KEY; // Replace with your YouTube API key
 const YOUTUBE_API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&type=video&key=${API_KEY}`;
 
 export default function YoutubeVideos() {
@@ -31,7 +32,7 @@ export default function YoutubeVideos() {
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto p-6 h-[100vh]">
       {selectedVideo ? (
         <div className="video-player-container">
           <button
@@ -55,8 +56,8 @@ export default function YoutubeVideos() {
         </div>
       ) : (
         <>
-          <h1 className="text-3xl font-bold mb-6">YouTube Home Page</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {/* <h1 className="text-3xl font-bold mb-6">YouTube Home Page</h1> */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
             {videos?.map((video) => (
               <div
                 key={video.id.videoId}

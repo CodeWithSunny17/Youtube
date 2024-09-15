@@ -13,7 +13,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="bg-zinc-900 text-white">
       <div className={"fixed top-0 w-[100vw]"}>
         <Navbar toggleOpen={toggleOpen} SetOpenBar={SetOpenBar} />
       </div>
@@ -34,8 +34,8 @@ const Home = () => {
         }
         onClick={() => SetOpenBar(false)}
       ></div>
-      <div className="w-[100vw] h-[100vh] bg-zinc-900">
-        {/* <YoutubeVideos toggleOpen={toggleOpen} SetOpenBar={SetOpenBar} /> */}
+      <div className="w-[100vw] bg-zinc-900 mt-14">
+        <YoutubeVideos toggleOpen={toggleOpen} SetOpenBar={SetOpenBar} />
       </div>
     </div>
   );
