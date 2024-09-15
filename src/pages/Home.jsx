@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "../components/SideBar";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
+import Button from "../components/Button";
 
 const Home = () => {
 	const [openBar, SetOpenBar] = useState(false);
@@ -30,8 +31,13 @@ const Home = () => {
 						SetOpenBar(false);
 					}}
 				>
-					{" "}
-					Hi there
+					<div className="flex">
+						<Button label={"Video"} />
+						<Button label={"Article"} />
+					</div>
+					<div>
+						
+					</div>
 				</div>
 			</div>
 		</div>
