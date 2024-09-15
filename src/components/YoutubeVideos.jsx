@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import YT_API_KEY from "../../key";
 
 const API_KEY = YT_API_KEY; // Replace with your YouTube API key
-const YOUTUBE_API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&type=video&key=${API_KEY}`;
+const YOUTUBE_API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=21&type=video&videoDuration=medium&key=${API_KEY}`;
 
 export default function YoutubeVideos() {
   const [videos, setVideos] = useState([]);
@@ -32,9 +32,9 @@ export default function YoutubeVideos() {
   };
 
   return (
-    <div className="container mx-auto p-6 h-[100vh]">
+    <div className="container mx-auto">
       {selectedVideo ? (
-        <div className="video-player-container">
+        <div className="video-player-container h-[100vh]">
           <button
             onClick={handleClosePlayer}
             className="mb-4 p-2 bg-red-500 text-white rounded"
@@ -57,11 +57,11 @@ export default function YoutubeVideos() {
       ) : (
         <>
           {/* <h1 className="text-3xl font-bold mb-6">YouTube Home Page</h1> */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-5 gap-y-8">
             {videos?.map((video) => (
               <div
                 key={video.id.videoId}
-                className="bg-gray-900 p-4 rounded-lg shadow-lg cursor-pointer"
+                className="p-0 rounded-lg shadow-lg cursor-pointer"
                 onClick={() => handleVideoClick(video.id.videoId)} // Handle video click
               >
                 <img
