@@ -5,12 +5,12 @@ import YoutubeVideos from "../components/YoutubeVideos";
 import { useState } from "react";
 
 const Home = () => {
-	const [openBar, SetOpenBar] = useState(false);
-	console.log(openBar); // these are my changes
+  const [openBar, SetOpenBar] = useState(false);
+  console.log(openBar); // these are my changes
 
-	const toggleOpen = () => {
-		SetOpenBar(!openBar);
-	};
+  const toggleOpen = () => {
+    SetOpenBar(!openBar);
+  };
 
   return (
     <div className="bg-zinc-900 text-white">
@@ -39,7 +39,6 @@ const Home = () => {
       </div>
     </div>
   );
-
 };
 
 export default Home;
