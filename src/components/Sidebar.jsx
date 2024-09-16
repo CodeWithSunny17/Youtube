@@ -82,10 +82,18 @@ const Sidebar = ({ openBar, toggleOpen, SetOpenBar }) => {
               <div className="text-xl" onClick={toggleOpen}>
                 <RxHamburgerMenu />
               </div>
-              <div className="flex justify-between items-center gap-1">
+              {/* <div className="flex justify-between items-center gap-1">
                 <div className="bg-white ml-1 w-4 h-4 z-0 absolute"></div>
                 <FaYoutube className="text-3xl text-red-600 z-10" />
                 <span className="text-2xl font-semibold">YouTube</span>
+              </div> */}
+              <div className="flex justify-between items-center gap-1">
+                {/* <img src="/YtLight.svg" alt="Video-player-icon" className="h-6 " /> */}
+                <img
+                  src="/YtDark.svg"
+                  alt="Video-player-icon"
+                  className="h-6 "
+                />
               </div>
             </div>
             <div className="overflow-y-auto h-[50%] border-b border-zinc-700 mx-3 pb-2">
