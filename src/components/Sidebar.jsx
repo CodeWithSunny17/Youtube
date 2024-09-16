@@ -68,7 +68,11 @@ const Sidebar = ({ openBar, toggleOpen, SetOpenBar }) => {
   };
 
   return (
-    <div className={`h-[100vh]`}>
+    <div
+      className={
+        "h-[100vh] flex justify-center items-center bg-zinc-900 text-white absolute z-50"
+      }
+    >
       <div
         className={`fixed top-0 left-0 h-full  w-[35%] md:w-[20%] text-white transform transition-transform duration-300 ease-in-out ${
           openBar ? "translate-x-0" : "-translate-x-full"

@@ -5,25 +5,22 @@ import { FiSearch } from "react-icons/fi";
 import { FaMicrophone } from "react-icons/fa";
 import { RiVideoAddLine } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ toggleOpen, SetOpenBar }) {
   const [isVisible, setIsVisible] = useState(false);
   return (
-    <div className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white">
+    <div className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white fixed top-0 w-[100vw]">
       <div className="flex justify-center items-center gap-6 ">
         <div className="text-xl" onClick={toggleOpen}>
           <RxHamburgerMenu />
         </div>
-        {/* <div className="flex justify-between items-center gap-1">
-          <div className="bg-white ml-1 w-4 h-4 z-0 absolute"></div>
-          <FaYoutube className="text-3xl text-red-600 z-10" />
-          <span className="text-2xl font-semibold">YouTube</span>
-          <img src="./MyTube.svg" alt="Video-payer-icon" srcSet="" />
-        </div> */}
-        <div className="flex justify-between items-center gap-1">
-          {/* <img src="/YtLight.svg" alt="Video-player-icon" className="h-6 " /> */}
-          <img src="/YtDark.svg" alt="Video-player-icon" className="h-6 " />
-        </div>
+        <Link to="/">
+          <div className="flex justify-between items-center gap-1">
+            {/* <img src="/YtLight.svg" alt="Video-player-icon" className="h-6 " /> */}
+            <img src="/YtDark.svg" alt="Video-player-icon" className="h-6 " />
+          </div>
+        </Link>
       </div>
       <div
         className="hidden sm:block"
