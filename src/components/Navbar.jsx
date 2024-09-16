@@ -12,11 +12,11 @@ export default function Navbar({ toggleOpen, SetOpenBar }) {
   return (
     <div className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white fixed top-0 w-[100vw]">
       <div className="flex justify-center items-center gap-6 ">
-        <div className="text-xl" onClick={toggleOpen}>
+        <div className="text-xl cursor-pointer" onClick={toggleOpen}>
           <RxHamburgerMenu />
         </div>
         <Link to="/">
-          <div className="flex justify-between items-center gap-1">
+          <div className="flex justify-between items-center gap-1 cursor-pointer">
             {/* <img src="/YtLight.svg" alt="Video-player-icon" className="h-6 " /> */}
             <img src="/YtDark.svg" alt="Video-player-icon" className="h-6 " />
           </div>
@@ -40,24 +40,24 @@ export default function Navbar({ toggleOpen, SetOpenBar }) {
                   className="bg-zinc-950 w-[10vw] md:w-[35vw] focus:outline-none"
                 />
               </div>
-              <button className="bg-zinc-800 h-10 w-16 flex justify-center items-center rounded-r-3xl border border-zinc-700">
+              <button className="bg-zinc-800 h-10 w-16 flex justify-center items-center rounded-r-3xl border border-zinc-700 cursor-pointer">
                 <FiSearch />
               </button>
             </div>
-            <div className="w-10 h-10 bg-zinc-800 flex justify-center items-center rounded-full">
+            <div className="w-10 h-10 bg-zinc-800 flex justify-center items-center rounded-full cursor-pointer">
               <FaMicrophone />
             </div>
           </div>
         </form>
       </div>
       <div className="flex justify-center items-center gap-6">
-        <div>
+        <div className="cursor-pointer">
           <RiVideoAddLine className="text-2xl" />
         </div>
-        <div>
+        <div className="cursor-pointer">
           <IoMdNotificationsOutline className="text-2xl" />
         </div>
-        <div>
+        <div className="cursor-pointer">
           <div className="w-8 h-8 bg-zinc-500 rounded-full"></div>
         </div>
       </div>
