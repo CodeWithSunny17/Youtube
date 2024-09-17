@@ -5,6 +5,7 @@ import { FiMapPin } from "react-icons/fi";
 import { FaUsers } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BiChevronRight } from "react-icons/bi";
+import { Link } from "react-router-dom";
 import { FaYoutube } from "react-icons/fa";
 
 const Sidebar = ({ openBar, toggleOpen, SetOpenBar }) => {
@@ -68,7 +69,11 @@ const Sidebar = ({ openBar, toggleOpen, SetOpenBar }) => {
   };
 
   return (
-    <div className={`h-[100vh]`}>
+    <div
+      className={
+        "h-[100vh] flex justify-center items-center bg-zinc-900 text-white absolute z-50"
+      }
+    >
       <div
         className={`fixed top-0 left-0 h-full  w-[35%] md:w-[20%] text-white transform transition-transform duration-300 ease-in-out ${
           openBar ? "translate-x-0" : "-translate-x-full"
@@ -79,22 +84,20 @@ const Sidebar = ({ openBar, toggleOpen, SetOpenBar }) => {
 
           <div className="bg-zinc-900">
             <div className="flex items-center gap-6 px-6 pt-3  pb-3 sticky top-0 bg-zinc-900">
-              <div className="text-xl" onClick={toggleOpen}>
+              <div className="text-xl cursor-pointer" onClick={toggleOpen}>
                 <RxHamburgerMenu />
               </div>
-              {/* <div className="flex justify-between items-center gap-1">
-                <div className="bg-white ml-1 w-4 h-4 z-0 absolute"></div>
-                <FaYoutube className="text-3xl text-red-600 z-10" />
-                <span className="text-2xl font-semibold">YouTube</span>
-              </div> */}
-              <div className="flex justify-between items-center gap-1">
-                {/* <img src="/YtLight.svg" alt="Video-player-icon" className="h-6 " /> */}
-                <img
-                  src="/YtDark.svg"
-                  alt="Video-player-icon"
-                  className="h-6 "
-                />
-              </div>
+
+              <Link to="/">
+                <div className="flex justify-between items-center gap-1 cursor-pointer">
+                  {/* <img src="/YtLight.svg" alt="Video-player-icon" className="h-6 " /> */}
+                  <img
+                    src="/YtDark.svg"
+                    alt="Video-player-icon"
+                    className="h-6 "
+                  />
+                </div>
+              </Link>
             </div>
             <div className="overflow-y-auto h-[50%] border-b border-zinc-700 mx-3 pb-2">
               <div className="w-full">
