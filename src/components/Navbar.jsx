@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 export default function Navbar({ toggleOpen, SetOpenBar }) {
   const [isVisible, setIsVisible] = useState(false);
   return (
-    <div className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white fixed top-0 w-[100vw]">
+    <div className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white fixed top-0 w-[100vw] z-10">
       <div className="flex justify-center items-center gap-6 ">
         <div className="text-xl cursor-pointer" onClick={toggleOpen}>
           <RxHamburgerMenu />
