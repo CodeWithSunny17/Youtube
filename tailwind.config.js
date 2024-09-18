@@ -6,6 +6,9 @@ export default {
       colors: {
         "custom-gray": "#F1F1F1",
       },
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+      },
     },
   },
   plugins: [require('@tailwindcss/aspect-ratio'),],

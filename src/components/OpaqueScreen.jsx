@@ -1,7 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleClose } from "../features/youtubeSlice";
 
-export default function OpaqueScreen({ SetOpenBar, openBar }) {
+export default function OpaqueScreen({}) {
+  const openBar = useSelector((state) => state.youtube.openBar);
+  const dispatch = useDispatch();
+
   // UseEffect hook to disable scroll when the modal is open
   useEffect(() => {
     if (openBar) {
@@ -24,7 +29,7 @@ export default function OpaqueScreen({ SetOpenBar, openBar }) {
           ? "w-[100vw] h-[100vh] z-30 bg-zinc-900 opacity-60 absolute"
           : "-z-10"
       }
-      onClick={() => SetOpenBar(false)}
+      onClick={() => dispatch(toggleClose())}
     ></div>
   );
 }
