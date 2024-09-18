@@ -1,6 +1,22 @@
 import React from "react";
+import { useEffect } from "react";
 
 export default function OpaqueScreen({ SetOpenBar, openBar }) {
+  // UseEffect hook to disable scroll when the modal is open
+  useEffect(() => {
+    if (openBar) {
+      document.body.style.overflow = "hidden"; // Disable scrolling
+    } else {
+      document.body.style.overflow = ""; // Enable scrolling
+    }
+    // Clean up effect to ensure scroll is enabled when the modal is closed
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [openBar]);
+
+  if (!openBar) return null;
+
   return (
     <div
       className={
