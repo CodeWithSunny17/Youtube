@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { FaYoutube } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { FaMicrophone } from "react-icons/fa";
 import { RiVideoAddLine } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { toggleOpenBar } from "../features/youtubeSlice";
 
-export default function Navbar({ toggleOpen, SetOpenBar }) {
-  const [isVisible, setIsVisible] = useState(false);
+export default function Navbar({}) {
+  const dispatch = useDispatch();
+
   return (
     <div className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white fixed top-0 w-[100vw] z-10">
       <div className="flex justify-center items-center gap-6 ">
-        <div className="text-xl cursor-pointer" onClick={toggleOpen}>
+        <div
+          className="text-xl cursor-pointer"
+          onClick={() => dispatch(toggleOpenBar())}
+        >
           <RxHamburgerMenu />
         </div>
         <Link to="/">
@@ -22,12 +27,7 @@ export default function Navbar({ toggleOpen, SetOpenBar }) {
           </div>
         </Link>
       </div>
-      <div
-        className="hidden sm:block"
-        onClick={() => {
-          SetOpenBar(false);
-        }}
-      >
+      <div className="hidden sm:block">
         <form action="">
           <div className="flex justify-center items-center gap-4 ">
             <div

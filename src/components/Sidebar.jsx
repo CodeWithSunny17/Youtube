@@ -1,4 +1,3 @@
-import Accordian from "./Accordian";
 import { useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
@@ -6,10 +5,14 @@ import { FaUsers } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { FaYoutube } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleOpenBar } from "../features/youtubeSlice";
 
-const Sidebar = ({ openBar, toggleOpen, SetOpenBar }) => {
+const Sidebar = ({}) => {
   const [expandedAccordion, setExpandedAccordion] = useState(null);
+  const dispatch = useDispatch();
+
+  const isActive = useSelector((state) => state.youtube.openBar);
 
   const accordionsHome = [
     {
@@ -76,7 +79,7 @@ const Sidebar = ({ openBar, toggleOpen, SetOpenBar }) => {
     >
       <div
         className={`fixed top-0 left-0 h-full  w-[35%] md:w-[20%] text-white transform transition-transform duration-300 ease-in-out ${
-          openBar ? "translate-x-0" : "-translate-x-full"
+          isActive ? "translate-x-0" : "-translate-x-full"
         } overflow-hidden group`}
       >
         <div className="h-full overflow-y-auto pb-4  custom-scrollbar">
@@ -84,7 +87,10 @@ const Sidebar = ({ openBar, toggleOpen, SetOpenBar }) => {
 
           <div className="bg-zinc-900">
             <div className="flex items-center gap-6 px-6 pt-3  pb-3 sticky top-0 bg-zinc-900">
-              <div className="text-xl cursor-pointer" onClick={toggleOpen}>
+              <div
+                className="text-xl cursor-pointer"
+                onClick={() => dispatch(toggleOpenBar())}
+              >
                 <RxHamburgerMenu />
               </div>
 
