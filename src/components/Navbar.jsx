@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { FaYoutube } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { FaMicrophone } from "react-icons/fa";
 import { RiVideoAddLine } from "react-icons/ri";
