@@ -5,43 +5,45 @@ import OpaqueScreen from "./components/OpaqueScreen";
 import Home from "./pages/Home";
 import VideoPlay from "./pages/VideoPlay";
 import "./App.css";
+import { useState } from "react";
 
 export default function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (
-        <>
-          <Navbar />
-          <Sidebar />
-          <OpaqueScreen />
-          <Home />
-        </>
-      ),
-    },
-    {
-      path: "/home",
-      element: (
-        <>
-          <Navbar />
-          <Sidebar />
-          <OpaqueScreen />
-          <Home />
-        </>
-      ),
-    },
-    {
-      path: "/video/:videoId",
-      element: (
-        <>
-          <Navbar />
-          <Sidebar />
-          <OpaqueScreen />
-          <VideoPlay />
-        </>
-      ),
-    },
-  ]);
+	const [searchQuery, setSearchQuery] = useState("");
+	const router = createBrowserRouter([
+		{
+			path: "/",
+			element: (
+				<>
+					<Navbar setSearchQuery={setSearchQuery}/>
+					<Sidebar />
+					<OpaqueScreen />
+					<Home searchQuery={searchQuery}/>
+				</>
+			),
+		},
+		{
+			path: "/home",
+			element: (
+				<>
+					<Navbar setSearchQuery={setSearchQuery}/>
+					<Sidebar />
+					<OpaqueScreen />
+					<Home searchQuery={searchQuery}/>
+				</>
+			),
+		},
+		{
+			path: "/video/:videoId",
+			element: (
+				<>
+					<Navbar setSearchQuery={setSearchQuery}/>
+					<Sidebar />
+					<OpaqueScreen />
+					<VideoPlay />
+				</>
+			),
+		},
+	]);
 
-  return <RouterProvider router={router} />;
+	return <RouterProvider router={router} />;
 }
