@@ -11,6 +11,18 @@ const Home = ({ searchQuery }) => {
 	)}&maxResults=30&type=video&videoDuration=medium&key=${API_KEY}`;
 
 	useEffect(() => {
+		const fetchVideos = async () => {
+			try {
+				const response = await fetch(YOUTUBE_API_URL);
+				//const response = await fetch("/data.json");
+				const data = await response.json();
+				// console.log(data);
+				setVideos(data.items);
+			} catch (error) {
+				console.error("Error fetching data:", error);
+			}
+		};
+		fetchVideos();
 		if (searchQuery) {
 			fetchVideos();
 		}
