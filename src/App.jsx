@@ -8,42 +8,43 @@ import "./App.css";
 import { useState } from "react";
 
 export default function App() {
-	const [searchQuery, setSearchQuery] = useState("");
-	const router = createBrowserRouter([
-		{
-			path: "/",
-			element: (
-				<>
-					<Navbar setSearchQuery={setSearchQuery}/>
-					<Sidebar />
-					<OpaqueScreen />
-					<Home searchQuery={searchQuery}/>
-				</>
-			),
-		},
-		{
-			path: "/home",
-			element: (
-				<>
-					<Navbar setSearchQuery={setSearchQuery}/>
-					<Sidebar />
-					<OpaqueScreen />
-					<Home searchQuery={searchQuery}/>
-				</>
-			),
-		},
-		{
-			path: "/video/:videoId",
-			element: (
-				<>
-					<Navbar setSearchQuery={setSearchQuery}/>
-					<Sidebar />
-					<OpaqueScreen />
-					<VideoPlay />
-				</>
-			),
-		},
-	]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [videoDuration, setVideoDuration] = useState("medium");
+  const [category, setCategory] = useState("");
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          <Navbar setSearchQuery={setSearchQuery} />
+          <Sidebar
+            setCategory={setCategory}
+            setVideoDuration={setVideoDuration}
+          />
+          <OpaqueScreen />
+          <Home
+            searchQuery={searchQuery}
+            category={category}
+            videoDuration={videoDuration}
+          />
+        </>
+      ),
+    },
+    {
+      path: "/video/:videoId",
+      element: (
+        <>
+          <Navbar setSearchQuery={setSearchQuery} />
+          <Sidebar
+            setCategory={setCategory}
+            setVideoDuration={setVideoDuration}
+          />
+          <OpaqueScreen />
+          <VideoPlay />
+        </>
+      ),
+    },
+  ]);
 
-	return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />;
 }
