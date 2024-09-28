@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 export default function VideoCard({ video }) {
   return (
     <div>
-      <Link to={`/video/${video.id.videoId}`} key={video.id.videoId}>
+      <Link
+        to={`/video/${video.id.videoId}`}
+        key={video.id.videoId}
+        title={video.snippet.title}
+      >
         <div
           key={video.id.videoId}
           className="p-0 rounded-lg shadow-lg cursor-pointer"
