@@ -7,8 +7,17 @@ import { BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleOpenBar } from "../features/youtubeSlice";
+import { SiYoutubegaming } from "react-icons/si";
+import { FaCarSide } from "react-icons/fa";
+import { MdSportsBasketball } from "react-icons/md";
+import { BiTv } from "react-icons/bi";
+import { GrTechnology } from "react-icons/gr";
+import { MdLibraryMusic } from "react-icons/md";
+import { FaBlogger } from "react-icons/fa";
+import { FaNewspaper } from "react-icons/fa";
+import { SiYoutubeshorts } from "react-icons/si";
 
-const Sidebar = ({}) => {
+const Sidebar = ({ setCategory, setVideoDuration }) => {
   const [expandedAccordion, setExpandedAccordion] = useState(null);
   const dispatch = useDispatch();
 
@@ -18,18 +27,63 @@ const Sidebar = ({}) => {
     {
       id: "home",
       title: "Home",
+      code: "",
       icon: <FaRegUser size={20} />,
     },
 
     {
       id: "shorts",
       title: "Shorts",
-      icon: <FiMapPin size={20} />,
+      code: "&videoCategoryId=42",
+      icon: <SiYoutubeshorts size={20} />,
     },
     {
-      id: "subscriptions",
-      title: "Subscriptions",
-      icon: <FaUsers size={20} />,
+      id: "gaming",
+      title: "Gaming",
+      code: "&videoCategoryId=20",
+      icon: <SiYoutubegaming size={20} />,
+    },
+    {
+      id: "automobiles",
+      title: "Automobiles",
+      code: "&videoCategoryId=2",
+      icon: <FaCarSide size={20} />,
+    },
+    {
+      id: "sports",
+      title: "Sports",
+      code: "&videoCategoryId=17",
+      icon: <MdSportsBasketball size={20} />,
+    },
+    {
+      id: "entertainment",
+      title: "Entertainment",
+      code: "&videoCategoryId=24",
+      icon: <BiTv size={20} />,
+    },
+    {
+      id: "technology",
+      title: "Technology",
+      code: "&videoCategoryId=28",
+      icon: <GrTechnology size={20} />,
+    },
+    {
+      id: "music",
+      title: "Music",
+      code: "&videoCategoryId=10",
+      icon: <MdLibraryMusic size={20} />,
+    },
+    {
+      id: "blogs",
+      title: "Blogs",
+      code: "&videoCategoryId=22",
+      icon: <FaBlogger size={20} />,
+    },
+    {
+      id: "news",
+      title: "News",
+      code: "&videoCategoryId=25",
+      icon: <FaNewspaper size={20} />,
     },
   ];
   const profileArray = [
@@ -72,11 +126,7 @@ const Sidebar = ({}) => {
   };
 
   return (
-    <div
-      className={
-        "h-[100vh] flex justify-center items-center bg-zinc-900 text-white absolute z-50"
-      }
-    >
+    <div className="h-[100vh] flex justify-center items-center bg-zinc-900 text-white absolute z-50">
       <div
         className={`fixed top-0 left-0 h-full  w-[35%] md:w-[20%] text-white transform transition-transform duration-300 ease-in-out ${
           isActive ? "translate-x-0" : "-translate-x-full"
@@ -109,7 +159,12 @@ const Sidebar = ({}) => {
               <div className="w-full">
                 <div className="flex-grow overflow-auto ">
                   {accordionsHome.map((accordion) => (
-                    <div key={accordion.id}>
+                    <div
+                      key={accordion.id}
+                      onClick={() => {
+                        setCategory(accordion.code);
+                      }}
+                    >
                       <button
                         className={`flex items-center justify-between hover:bg-zinc-800 w-[90%] py-3 pl-3 text-left transition-colors duration-300 rounded-md`}
                         onClick={() => toggleAccordion(accordion.id)}
@@ -134,47 +189,6 @@ const Sidebar = ({}) => {
                 </div>
                 <div className="flex-grow overflow-auto ">
                   {profileArray.map((accordion) => (
-                    <div key={accordion.id}>
-                      <button
-                        className={`flex items-center justify-between hover:bg-zinc-800 w-[90%] py-3 pl-3 mx-3 text-left transition-colors duration-300 rounded-md`}
-                        onClick={() => toggleAccordion(accordion.id)}
-                      >
-                        <div className="flex items-center">
-                          <span className="mr-3">{accordion.icon}</span>
-                          <span>{accordion.title}</span>
-                        </div>
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="h-[50%] border-b border-zinc-700 mx-3 pb-2">
-              <div className="w-full">
-                <div className="flex flex-cols items-center pl-5 pt-4 pb-3 font-semibold text-xl">
-                  Subscriptions
-                </div>
-                <div className="flex-grow overflow-auto ">
-                  {accordionsHome.map((accordion) => (
-                    <div key={accordion.id}>
-                      <button
-                        className={`flex items-center justify-between hover:bg-zinc-800 w-[90%] py-3 pl-3 mx-3 text-left transition-colors duration-300 rounded-md`}
-                        onClick={() => toggleAccordion(accordion.id)}
-                      >
-                        <div className="flex items-center">
-                          <span className="mr-3">{accordion.icon}</span>
-                          <span>{accordion.title}</span>
-                        </div>
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="h-[50%] border-b border-zinc-700 mx-3 pb-2">
-              <div className="w-full">
-                <div className="flex-grow overflow-auto ">
-                  {accordionsHome.map((accordion) => (
                     <div key={accordion.id}>
                       <button
                         className={`flex items-center justify-between hover:bg-zinc-800 w-[90%] py-3 pl-3 mx-3 text-left transition-colors duration-300 rounded-md`}
