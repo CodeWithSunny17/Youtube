@@ -24,7 +24,7 @@ export default function VideoPlay({}) {
     fetchVideos();
   }, []);
 
-  console.log(selectedVideo);
+  // console.log(selectedVideo);
   return (
     <div className="flex justify-center g-8 flex-row p-6">
       <div className="mt-14 lg:w-3/4 lg:pr-8 font-roboto">
@@ -43,7 +43,7 @@ export default function VideoPlay({}) {
 
         {/* Video Info */}
         <h2 className="text-2xl font-semibold mb-2">
-          {selectedVideo.snippet.title}
+          {selectedVideo?.snippet.title}
         </h2>
         <div className="flex justify-between items-center text-sm mb-4">
           <div className="flex items-center justify-between gap-4 py-4 mb-4">
@@ -55,7 +55,7 @@ export default function VideoPlay({}) {
               />
               <div>
                 <h3 className="font-semibold">
-                  {selectedVideo.snippet.channelTitle}
+                  {selectedVideo?.snippet.channelTitle}
                 </h3>
                 <p className="text-sm ">1M subscribers</p>
               </div>

@@ -6,14 +6,15 @@ import { RiVideoAddLine } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { toggleOpenBar } from "../features/youtubeSlice";
+import { toggleOpenBar, toggleSearch } from "../features/youtubeSlice";
 
-export default function Navbar({ setSearchQuery }) {
+export default function Navbar({}) {
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setSearchQuery(e.target.searchQuery.value);
+    console.log(e);
+    dispatch(toggleSearch(e.target.searchQuery.value));
   };
 
   return (
