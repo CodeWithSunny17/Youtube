@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     videos: [],
     openBar: false,
+    searchQuery: ""
 }
 
 export const youtubeSlice = createSlice({
@@ -14,12 +15,15 @@ export const youtubeSlice = createSlice({
         },
         toggleClose: (state) => {
             state.openBar = false
+        },
+        toggleSearch: (state, action) => {
+            state.searchQuery = action.payload
         }
 
     },
 })
 
 
-export const { toggleOpenBar, toggleClose } = youtubeSlice.actions
+export const { toggleOpenBar, toggleClose, toggleSearch } = youtubeSlice.actions
 
 export default youtubeSlice.reducer
