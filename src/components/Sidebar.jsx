@@ -17,7 +17,7 @@ import { FaBlogger } from "react-icons/fa";
 import { FaNewspaper } from "react-icons/fa";
 import { SiYoutubeshorts } from "react-icons/si";
 
-const Sidebar = ({ setCategory, setVideoDuration }) => {
+export const Sidebar = ({ setCategory, setVideoDuration }) => {
   const [expandedAccordion, setExpandedAccordion] = useState(null);
   const dispatch = useDispatch();
 
@@ -210,5 +210,3 @@ const Sidebar = ({ setCategory, setVideoDuration }) => {
     </div>
   );
 };
-
-export default Sidebar;

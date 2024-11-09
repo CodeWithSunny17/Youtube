@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import VideoCard from "../components/VideoCard";
+import { VideoCard } from "../components/VideoCard";
 import { useDispatch, useSelector } from "react-redux";
 
-const Home = ({ category }) => {
+export const Home = ({ category }) => {
   const dispatch = useDispatch();
   const searchQuery = useSelector((state) => state.youtube.searchQuery); // Access the searchQuery from Redux
 
@@ -45,5 +45,3 @@ const Home = ({ category }) => {
     </div>
   );
 };
-
-export default Home;
