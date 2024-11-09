@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toggleOpenBar, toggleSearch } from "../features/youtubeSlice";
 
-export default function Navbar({}) {
+export function Navbar({}) {
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {

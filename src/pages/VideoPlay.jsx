@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import avatar from "../assets/jack.png";
 import { MdThumbUp, MdThumbDown, MdShare, MdPlaylistAdd } from "react-icons/md";
 
-export default function VideoPlay({}) {
+export function VideoPlay({}) {
   const { videoId } = useParams();
   const [selectedVideo, setSelectedVideo] = useState();
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function VideoCard({ video }) {
+export function VideoCard({ video }) {
   return (
     <div>
       <Link

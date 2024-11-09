@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/SideBar";
-import OpaqueScreen from "./components/OpaqueScreen";
-import Home from "./pages/Home";
-import VideoPlay from "./pages/VideoPlay";
+import { Navbar } from "./components/Navbar";
+import { Sidebar } from "./components/Sidebar";
+import { OpaqueScreen } from "./components/OpaqueScreen";
+import { Home } from "./pages/Home";
+import { VideoPlay } from "./pages/VideoPlay";
 import "./App.css";
 import { useState } from "react";
 

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleClose } from "../features/youtubeSlice";
 
-export default function OpaqueScreen({}) {
+export function OpaqueScreen({}) {
   const openBar = useSelector((state) => state.youtube.openBar);
   const dispatch = useDispatch();
 
