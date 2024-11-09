@@ -69,7 +69,6 @@
 // import { useParams } from "react-router-dom";
 // import avatar from "../assets/jack.png";
 // import { MdThumbUp, MdThumbDown, MdShare, MdPlaylistAdd } from "react-icons/md";
-// import { YT_API_KEY } from "../../key";
 
 // export default function VideoPlay({}) {
 //   const { videoId } = useParams();

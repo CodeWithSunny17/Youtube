@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { YT_API_KEY } from "../../key";
 import VideoCard from "../components/VideoCard";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -9,8 +8,8 @@ const Home = ({ category }) => {
   const searchQuery = useSelector((state) => state.youtube.searchQuery); // Access the searchQuery from Redux
 
   const [videos, setVideos] = useState([]);
-  const API_KEY = YT_API_KEY; // Replace with your YouTube API key
-
+  const API_KEY = import.meta.env.VITE_API_KEY; // Replace with your YouTube API key
+  console.log(API_KEY);
   const fetchVideos = async () => {
     try {
       const YOUTUBE_API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
