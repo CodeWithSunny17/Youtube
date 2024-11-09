@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import avatar from "../assets/jack.png";
 import { MdThumbUp, MdThumbDown, MdShare, MdPlaylistAdd } from "react-icons/md";
-import { YT_API_KEY } from "../../key";
 
 export default function VideoPlay({}) {
   const { videoId } = useParams();
@@ -10,7 +9,9 @@ export default function VideoPlay({}) {
 
   const fetchVideos = async () => {
     try {
-      const VIDEO_URL = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${videoId}&key=${YT_API_KEY}`;
+      const API_KEY = import.meta.env.REACT_APP_API_KEY;
+      console.log(API_KEY);
+      const VIDEO_URL = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${videoId}&key=${API_KEY}`;
       const response = await fetch(VIDEO_URL);
       const data = await response.json();
       // console.log(data);
