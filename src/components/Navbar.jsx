@@ -8,18 +8,20 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toggleOpenBar, toggleSearch } from "../features/youtubeSlice";
 
-export function Navbar({}) {
+export function Navbar() {
   const dispatch = useDispatch();
+  const [showSearch, setShowSearch] = useState(false); // ✅ Toggle for search bar in mobile
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log(e);
     dispatch(toggleSearch(e.target.searchQuery.value));
+    setShowSearch(false); // ✅ Close search bar after search
   };
 
   return (
-    <div className="flex justify-between items-center px-6 h-14 bg-zinc-900 text-white fixed top-0 w-[100vw] z-10">
-      <div className="flex justify-center items-center gap-6 ">
+    <div className="flex justify-between items-center px-4 sm:px-6 h-14 bg-zinc-900 text-white fixed top-0 w-full z-10">
+      {/* Left: Logo & Menu */}
+      <div className="flex items-center gap-4">
         <div
           className="text-xl cursor-pointer"
           onClick={() => dispatch(toggleOpenBar())}
@@ -27,49 +29,52 @@ export function Navbar({}) {
           <RxHamburgerMenu />
         </div>
         <Link to="/">
-          <div className="flex justify-between items-center gap-1 cursor-pointer">
-            {/* <img src="/YtLight.svg" alt="Video-player-icon" className="h-6 " /> */}
-            <img src="/YtDark.svg" alt="Video-player-icon" className="h-6 " />
-          </div>
+          <img src="/YtDark.svg" alt="Video-player-icon" className="h-6" />
         </Link>
       </div>
-      <div className="hidden sm:block">
-        <form action="" onSubmit={handleSearch}>
-          <div className="flex justify-center items-center gap-4 ">
-            <div
-              className={`flex justify-center items-center h-10 pl-4 pr-0 rounded-3xl bg-zinc-950 border border-r-0 border-zinc-700 `}
+
+      {/* Center: Search Bar */}
+      <div
+        className={`absolute left-0 right-0 px-4 top-14 bg-zinc-900 transition-all duration-300 ${
+          showSearch ? "flex" : "hidden"
+        } sm:flex sm:relative sm:top-0 sm:bg-transparent sm:px-0`}
+      >
+        <form className="w-full sm:w-auto" onSubmit={handleSearch}>
+          <div className="flex items-center border border-zinc-700 rounded-3xl bg-zinc-950">
+            <input
+              name="searchQuery"
+              type="text"
+              placeholder="Search"
+              className="w-full sm:w-[35vw] bg-zinc-950 px-4 h-10 focus:outline-none rounded-l-3xl"
+            />
+            <button
+              type="submit"
+              className="bg-zinc-800 px-4 h-10 flex items-center justify-center rounded-r-3xl border-l border-zinc-700"
             >
-              <div>
-                <input
-                  name="searchQuery"
-                  type="text"
-                  placeholder="Search"
-                  className="bg-zinc-950 w-[10vw] md:w-[35vw] focus:outline-none"
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-zinc-800 h-10 w-16 flex justify-center items-center rounded-r-3xl border border-zinc-700 cursor-pointer"
-              >
-                <FiSearch />
-              </button>
-            </div>
-            <div className="w-10 h-10 bg-zinc-800 flex justify-center items-center rounded-full cursor-pointer">
-              <FaMicrophone />
-            </div>
+              <FiSearch />
+            </button>
           </div>
         </form>
       </div>
-      <div className="flex justify-center items-center gap-6">
-        <div className="cursor-pointer">
-          <RiVideoAddLine className="text-2xl" />
+
+      {/* Right: Icons */}
+      <div className="flex items-center gap-4 sm:gap-6">
+        {/* Search Icon (Mobile Only) */}
+        <button
+          className="sm:hidden text-xl"
+          onClick={() => setShowSearch(!showSearch)}
+        >
+          <FiSearch />
+        </button>
+
+        {/* Microphone (Hidden on Small Screens) */}
+        <div className="hidden sm:flex w-10 h-10 bg-zinc-800 rounded-full items-center justify-center cursor-pointer">
+          <FaMicrophone />
         </div>
-        <div className="cursor-pointer">
-          <IoMdNotificationsOutline className="text-2xl" />
-        </div>
-        <div className="cursor-pointer">
-          <div className="w-8 h-8 bg-zinc-500 rounded-full"></div>
-        </div>
+
+        <RiVideoAddLine className="text-2xl cursor-pointer" />
+        <IoMdNotificationsOutline className="text-2xl cursor-pointer" />
+        <div className="w-8 h-8 bg-zinc-500 rounded-full cursor-pointer"></div>
       </div>
     </div>
   );
