@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { VideoCard } from "../components/VideoCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleClose } from "../features/youtubeSlice";
 
 export const Home = ({ category }) => {
   const searchQuery = useSelector((state) => state.youtube.searchQuery);
   const [videos, setVideos] = useState([]);
   const [nextPageToken, setNextPageToken] = useState(null); // Track pagination
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -34,6 +36,7 @@ export const Home = ({ category }) => {
   };
 
   useEffect(() => {
+    dispatch(toggleClose());
     setVideos([]); // Reset videos when query/category changes
     fetchVideos();
   }, [searchQuery, category]);
@@ -55,7 +58,7 @@ export const Home = ({ category }) => {
   return (
     <div className="w-full bg-zinc-900 mt-14 pt-6 font-roboto">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-2 gap-y-4">
           {videos.map((video) => (
             <VideoCard video={video} key={video.id.videoId} />
           ))}

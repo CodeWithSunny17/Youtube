@@ -6,7 +6,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleOpenBar } from "../features/youtubeSlice";
+import { toggleOpenBar, toggleClose } from "../features/youtubeSlice";
 import { SiYoutubegaming } from "react-icons/si";
 import { FaCarSide } from "react-icons/fa";
 import { MdSportsBasketball } from "react-icons/md";
@@ -144,7 +144,7 @@ export const Sidebar = ({ setCategory, setVideoDuration }) => {
                 <RxHamburgerMenu />
               </div>
 
-              <Link to="/">
+              <Link to="/" onClick={() => dispatch(toggleClose())}>
                 <div className="flex justify-between items-center gap-1 cursor-pointer">
                   {/* <img src="/YtLight.svg" alt="Video-player-icon" className="h-6 " /> */}
                   <img
