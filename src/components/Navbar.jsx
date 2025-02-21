@@ -8,28 +8,29 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toggleOpenBar, toggleSearch } from "../features/youtubeSlice";
 
-export function Navbar() {
+export function Navbar({ setCategory }) {
   const dispatch = useDispatch();
-  const [showSearch, setShowSearch] = useState(false); // ✅ Toggle for search bar in mobile
+  const [showSearch, setShowSearch] = useState(false); // Toggle for search bar in mobile
 
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch(toggleSearch(e.target.searchQuery.value));
-    setShowSearch(false); // ✅ Close search bar after search
+    setShowSearch(false); // Close search bar after search
   };
 
   return (
     <div className="flex justify-between items-center px-4 sm:px-6 h-14 bg-zinc-900 text-white fixed top-0 w-full z-10">
       {/* Left: Logo & Menu */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-6">
         <div
           className="text-xl cursor-pointer"
           onClick={() => dispatch(toggleOpenBar())}
         >
           <RxHamburgerMenu />
         </div>
-        <Link to="/">
-          <img src="/YtDark.svg" alt="Video-player-icon" className="h-6" />
+        <Link to="/" onClick={() => setCategory("")}>
+          {/* <img src="/YtDark.svg" alt="Video-player-icon" className="h-6" /> */}
+          <h1 className="text-2xl font-semibold">ViteTube</h1>
         </Link>
       </div>
 
