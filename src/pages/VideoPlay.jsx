@@ -103,7 +103,7 @@ export function VideoPlay() {
             <div
               key={video.id.videoId}
               className="flex mb-4 cursor-pointer"
-              onClick={() => navigate(`/watch/${video.id.videoId}`)}
+              onClick={() => navigate(`/video/${video.id.videoId}`)}
             >
               <img
                 src={video.snippet.thumbnails.medium.url}

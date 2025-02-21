@@ -39,7 +39,7 @@ export const Home = ({ category }) => {
     dispatch(toggleClose());
     setVideos([]); // Reset videos when query/category changes
     fetchVideos();
-  }, [searchQuery, category]);
+  }, [searchQuery, category, toggleClose]);
 
   // Infinite Scroll - Load more when reaching the bottom
   useEffect(() => {
