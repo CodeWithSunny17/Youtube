@@ -34,7 +34,7 @@ export default function App() {
       path: "/video/:videoId",
       element: (
         <>
-          <Navbar setSearchQuery={setSearchQuery} />
+          <Navbar setSearchQuery={setSearchQuery} setCategory={setCategory} />
           <Sidebar
             setCategory={setCategory}
             setVideoDuration={setVideoDuration}

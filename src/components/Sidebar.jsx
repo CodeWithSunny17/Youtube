@@ -144,7 +144,13 @@ export const Sidebar = ({ setCategory, setVideoDuration }) => {
                 <RxHamburgerMenu />
               </div>
 
-              <Link to="/" onClick={() => dispatch(toggleClose())}>
+              <Link
+                to="/"
+                onClick={() => {
+                  dispatch(toggleClose());
+                  setCategory("");
+                }}
+              >
                 {/* <img
                   src="/YtDark.svg"
                   alt="Video-player-icon"

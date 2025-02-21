@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toggleOpenBar, toggleSearch } from "../features/youtubeSlice";
 
-export function Navbar() {
+export function Navbar({ setCategory }) {
   const dispatch = useDispatch();
   const [showSearch, setShowSearch] = useState(false); // Toggle for search bar in mobile
 
@@ -28,7 +28,7 @@ export function Navbar() {
         >
           <RxHamburgerMenu />
         </div>
-        <Link to="/">
+        <Link to="/" onClick={() => setCategory("")}>
           {/* <img src="/YtDark.svg" alt="Video-player-icon" className="h-6" /> */}
           <h1 className="text-2xl font-semibold">ViteTube</h1>
         </Link>
