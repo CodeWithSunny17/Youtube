@@ -145,14 +145,13 @@ export const Sidebar = ({ setCategory, setVideoDuration }) => {
               </div>
 
               <Link to="/" onClick={() => dispatch(toggleClose())}>
-                <div className="flex justify-between items-center gap-1 cursor-pointer">
-                  {/* <img src="/YtLight.svg" alt="Video-player-icon" className="h-6 " /> */}
-                  <img
-                    src="/YtDark.svg"
-                    alt="Video-player-icon"
-                    className="h-6 "
-                  />
-                </div>
+                {/* <img
+                  src="/YtDark.svg"
+                  alt="Video-player-icon"
+                  className="h-6 "
+                /> */}
+
+                <h1 className="text-2xl font-semibold">ViteTube</h1>
               </Link>
             </div>
             <div className="overflow-y-auto h-[50%] border-b border-zinc-700 mx-3 pb-2">
