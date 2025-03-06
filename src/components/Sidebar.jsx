@@ -26,12 +26,12 @@ export const Sidebar = ({ setVideoDuration, setCategory }) => {
 	const isActive = useSelector((state) => state.youtube.openBar);
 
 	const accordionsHome = [
-		{
-			id: "home",
-			title: "Home",
-			code: "",
-			icon: <FaRegUser size={20} />,
-		},
+		// {
+		// 	id: "home",
+		// 	title: "Home",
+		// 	code: "",
+		// 	icon: <FaRegUser size={20} />,
+		// },
 
 		{
 			id: "shorts",
